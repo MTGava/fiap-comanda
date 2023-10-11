@@ -6,9 +6,8 @@ import Input from './components/input';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('./assets/home.jpg')} />
-      <Text>Sistema</Text>
-      <Text style={styles.title}>Comanda</Text>
+      <Image style={styles.image} source={require('./assets/home.png')} />
+      <Text style={styles.title}>FIAP RENTAL</Text>
 
       <Input placeholder='e-mail'/>
       <Input placeholder='senha' secureTextEntry/>
@@ -16,7 +15,7 @@ export default function App() {
       <Button>Entrar</Button>
       
       <TouchableOpacity>
-        <Text>criar conta</Text>
+        <Text style={styles.text}>criar conta</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
@@ -26,18 +25,22 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FCFBFF',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    color: '#121A2C',
+    color: '#950101',
     fontSize: 34,
     fontWeight: 'bold',
   },
+  text: {
+    color: '#950101',
+    fontWeight: 'bold'
+  },
   input: {
-    backgroundColor: '#FFF',
-    borderColor: 'gray',
+    backgroundColor: '#3D0000',
+    borderColor: 'red',
     borderWidth: 1,
     padding: 8,
     borderRadius: 4,
