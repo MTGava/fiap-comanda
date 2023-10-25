@@ -3,7 +3,7 @@ import { Image, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 export default function CardDvd({ dvd }) {
 
     return (
-        <View style={styles.pedidos}>
+        <View style={styles.dvds}>
 
             <View style={styles.cardDvd}>
                 <Image style={styles.thumb} source={{ uri: dvd.imagePath }} />
@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         padding: 8,
       },
-      pedidos: {
+      dvds: {
         width: '100%',
       },
-      pedidoData:{
+      dvdData:{
         flexDirection: 'row',
         justifyContent: 'space-between',
       },
-      pedidoDataTotal: {
+      dvdDataTotal: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderTopWidth: 1,

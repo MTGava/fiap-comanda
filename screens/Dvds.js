@@ -1,18 +1,11 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 
-import CardDvd from '../components/card.js';
 import { StyleSheet } from 'react-native';
-import Button from '../components/Button.js';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-const dvd = {
-    "id": 1,
-    "nome": "Bolo de Chocolate",
-    "imagePath": "https://img.freepik.com/free-photo/close-up-fancy-dessert_23-2150527565.jpg?t=st=1688655003~exp=1688658603~hmac=84829cbb20876216de8d7e408378e6b1c44686855c3d414865b445e20bb5f7b4&w=1380",
-    "preco": 8
-}
+import CardDvd from '../components/card.js';
+import Button from '../components/button.js';
 
 export default function Dvds() {
     const [dvds, setDvds] = useState([])
@@ -20,11 +13,9 @@ export default function Dvds() {
     useEffect(() => {
         axios.get("http://localhost:3000/dvds")
             .then(resp => setDvds(resp.data))
-    })
+    }, [])
     
-
-
-    
+    console.log(dvds)
 
     return (
         <View style={styles.containerBetween}>
@@ -37,17 +28,17 @@ export default function Dvds() {
                 </View>
             </View>
 
-            <View style={styles.pedidos}>
-                <Text style={styles.subtitle}>Pedido</Text>
-                <View style={styles.pedidoData}>
+            <View style={styles.dvds}>
+                <Text style={styles.subtitle}>dvd</Text>
+                <View style={styles.dvdData}>
                     <Text>Saldo da comanda</Text>
                     <Text>R$ 0,00</Text>
                 </View>
-                <View style={styles.pedidoData}>
-                    <Text>Total do pedido</Text>
+                <View style={styles.dvdData}>
+                    <Text>Total do dvd</Text>
                     <Text>R$ +20,00</Text>
                 </View>
-                <View style={styles.pedidoDataTotal}>
+                <View style={styles.dvdDataTotal}>
                     <Text>Saldo final</Text>
                     <Text>R$ 149,00</Text>
                 </View>
@@ -59,7 +50,8 @@ export default function Dvds() {
 
             <ScrollView style={styles.scroll}>
                 {dvds.map(dvd => {
-                    <CardDvd dvd={dvd} />
+                                   
+                  <CardDvd key={dvd.id} dvd={dvd} />
                 })}
                 
             </ScrollView>
@@ -91,14 +83,14 @@ box: {
     borderRadius: 4,
     padding: 8,
   },
-  pedidos: {
+  dvds: {
     width: '100%',
   },
-  pedidoData:{
+  dvdData:{
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  pedidoDataTotal: {
+  dvdDataTotal: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderTopWidth: 1,

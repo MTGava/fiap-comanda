@@ -1,20 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Button from '../components/Button';
+import Button from '../components/button';
 import Input from '../components/input';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 export default function Login({navigation}) {
+
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const {login} = useContext(AuthContext)
+  const [erro, setErro] = useState('')
+
+  async function handleLogin() {
+    if (await login({email, senha})) {
+      navigation.navigate('Order')
+    } else {
+      setErro("usuário ou senha inválidos")
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require('../assets/home.png')} />
       <Text style={styles.title}>FIAP RENTAL</Text>
 
-      <Input placeholder='e-mail'/>
-      <Input placeholder='senha' secureTextEntry/>
+      <Input placeholder='e-mail' value={email} onChangeText={setEmail}/>
+      <Input placeholder='senha' value={senha} onChangeText={setSenha} secureTextEntry/>
 
-      <Button onPress={() => navigation.navigate('Order')}>
+      <Button onPress={handleLogin}>
         Entrar
         </Button>
+
+        <Text>{erro}</Text>
       
       <TouchableOpacity>
         <Text style={styles.text}>criar conta</Text>

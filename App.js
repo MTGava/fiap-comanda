@@ -10,8 +10,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name="Order" component={Order} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Order" component={Order} />
         <Stack.Screen name="Dvds" component={Dvds} />
       </Stack.Navigator>
     </NavigationContainer>
