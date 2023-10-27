@@ -7,7 +7,7 @@ import Button from '../components/button.js';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function Dvds() {
+export default function Dvds({navigation}) {
     const [dvds, setDvds] = useState([])
 
     useEffect(() => {
@@ -18,27 +18,27 @@ export default function Dvds() {
     return (
         <View style={styles.containerBetween}>
             <View style={styles.header}>
-                <MaterialIcons name="arrow-back" size={24} color="black" />
+                <MaterialIcons onPress={() => navigation.navigate("Order")} name="arrow-back" size={24} color="red" />
 
                 <View style={styles.box}>
-                    <Text>comanda</Text>
-                    <Text style={styles.title}>2457</Text>
+                    <Text style={styles.text2}>comanda</Text>
+                    <Text style={styles.text2}>2457</Text>
                 </View>
             </View>
 
             <View style={styles.dvds}>
                 <Text style={styles.subtitle}>dvd</Text>
                 <View style={styles.dvdData}>
-                    <Text>Saldo da comanda</Text>
-                    <Text>R$ 0,00</Text>
+                    <Text style={styles.text2}>Saldo da comanda</Text>
+                    <Text style={styles.text2}>R$ 0,00</Text>
                 </View>
                 <View style={styles.dvdData}>
-                    <Text>Total do dvd</Text>
-                    <Text>R$ +20,00</Text>
+                    <Text style={styles.text2}>Total do dvd</Text>
+                    <Text style={styles.text2}>R$ +20,00</Text>
                 </View>
                 <View style={styles.dvdDataTotal}>
-                    <Text>Saldo final</Text>
-                    <Text>R$ 149,00</Text>
+                    <Text style={styles.text2}>Saldo final</Text>
+                    <Text style={styles.text2}>R$ 149,00</Text>
                 </View>
             </View>
 
@@ -66,15 +66,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     margin: 20
   },
+  text2: {
+    color: '#FFBA26',
+    fontWeight: 'light'
+  },
   containerBetween: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 20,
   },
-box: {
-    borderColor: '#121A2C',
+  box: {
+    borderColor: '#950101',
     borderWidth: 1,
     borderRadius: 4,
     padding: 8,
@@ -92,7 +96,7 @@ box: {
     borderTopWidth: 1,
   },
   CardDvd: {
-    borderColor: '#121A2C55',
+    borderColor: '#3D0000',
     borderWidth: 1,
     borderRadius: 4,
     padding: 8,
@@ -112,7 +116,7 @@ box: {
     borderRadius: 4,
   },
   price: {
-    color: '#29A035',
+    color: '#FFBA26',
     fontSize: 18,
   },
   spinner: {

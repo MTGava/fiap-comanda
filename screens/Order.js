@@ -12,16 +12,16 @@ export default function Order({navigation}) {
         <>     
 
         <View style={styles.header}>
-            <MaterialIcons name="arrow-back" size={24} color="red" />
-            <Text style={styles.text2}>Pedido</Text>
-        </View>
+                <MaterialIcons onPress={() => navigation.navigate("Login")} name="arrow-back" size={24} color="red" />
+                <Text style={styles.text2}>Pedido</Text>
+            </View>
 
         <View style={styles.container}>
             
 
             <View>
                 <Text style={styles.text}>Olá,</Text>
-                <Text style={styles.text}>{username}</Text>
+                <Text style={styles.text2}>{username}</Text>
             </View>
 
             <View>
@@ -29,12 +29,12 @@ export default function Order({navigation}) {
                 <Button onPress={() => navigation.navigate("Dvds")}>confirmar</Button>
             </View>
 
-            <Text style={styles.text}>
+            <Text style={styles.text2}>
                 Digite o código do Dvd para iniciar um pedido
             </Text>
 
             <TouchableOpacity>
-                <Text style={styles.text2} onPress={() => navigation.navigate("Login")}>sair</Text>
+                <Text style={styles.text} onPress={() => navigation.navigate("Login")}>sair</Text>
             </TouchableOpacity>
 
         </View>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     text2: {
-        color: '#950101',
+        color: '#FFBA26',
         fontWeight: 'light'
     },
     header:{

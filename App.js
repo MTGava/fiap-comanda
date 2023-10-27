@@ -12,9 +12,9 @@ export default function App() {
     <NavigationContainer>
       <AuthProvider>
       <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen name="Dvds" component={Dvds} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Order" component={Order} />
-        <Stack.Screen name="Dvds" component={Dvds} />
       </Stack.Navigator>
       </AuthProvider>
     </NavigationContainer>

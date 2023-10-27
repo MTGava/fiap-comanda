@@ -32,7 +32,7 @@ export default function Login({navigation}) {
         Entrar
         </Button>
 
-        <Text style={styles.text}>{erro}</Text>
+        <Text style={styles.text2}>{erro}</Text>
       
       <TouchableOpacity>
         <Text style={styles.text}>criar conta</Text>
@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
   text: {
     color: '#950101',
     fontWeight: 'bold'
+  },
+  text2: {
+    color: '#FFBA26',
+    fontWeight: 'light'
   },
   input: {
     backgroundColor: '#3D0000',

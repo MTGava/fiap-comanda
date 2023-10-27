@@ -9,7 +9,7 @@ export default function CardDvd({ dvd }) {
                 <Image style={styles.thumb} source={{ uri: dvd.imagePath }} />
 
                 <View style={styles.dvdData}>
-                    <Text>{dvd.nome}</Text>
+                    <Text  style={styles.text2}>{dvd.nome}</Text>
                     <Text style={styles.price}>R$ {dvd.preco.toFixed(2)}</Text>
                 </View>
 
@@ -31,9 +31,12 @@ export default function CardDvd({ dvd }) {
 
 
 const styles = StyleSheet.create({
-
+  text2: {
+    color: '#2D2D2D',
+    fontWeight: 'light'
+  },
     box: {
-        borderColor: '#121A2C',
+        borderColor: '#FFFFFF',
         borderWidth: 1,
         borderRadius: 4,
         padding: 8,
@@ -51,7 +54,8 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
       },
       cardDvd: {
-        borderColor: '#121A2C55',
+        backgroundColor: '#FFBA26',
+        borderColor: '#2D2D2D',
         borderWidth: 1,
         borderRadius: 4,
         padding: 8,
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
       },
       price: {
-        color: '#29A035',
+        color: '#2D2D2D',
         fontSize: 18,
       },
       spinner: {
