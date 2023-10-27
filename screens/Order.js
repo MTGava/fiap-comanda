@@ -1,11 +1,13 @@
 import { StyleSheet, View, Text } from "react-native";
 import Input from "../components/input";
-import Button from "../components/Button";
+import Button from "../components/button";
 import { TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
-
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export default function Order({navigation}) {
+    const {username} = useContext(AuthContext)
     return (
         <>     
 
@@ -19,7 +21,7 @@ export default function Order({navigation}) {
 
             <View>
                 <Text style={styles.text}>Olá,</Text>
-                <Text style={styles.text}>Matheus Gava</Text>
+                <Text style={styles.text}>{username}</Text>
             </View>
 
             <View>
@@ -32,7 +34,7 @@ export default function Order({navigation}) {
             </Text>
 
             <TouchableOpacity>
-                <Text style={styles.text2}>sair</Text>
+                <Text style={styles.text2} onPress={() => navigation.navigate("Login")}>sair</Text>
             </TouchableOpacity>
 
         </View>

@@ -14,7 +14,7 @@ export default function Login({navigation}) {
 
   async function handleLogin() {
     if (await login({email, senha})) {
-      navigation.navigate('Order')
+      navigation.navigate("Order")
     } else {
       setErro("usuário ou senha inválidos")
     }
@@ -32,7 +32,7 @@ export default function Login({navigation}) {
         Entrar
         </Button>
 
-        <Text>{erro}</Text>
+        <Text style={styles.text}>{erro}</Text>
       
       <TouchableOpacity>
         <Text style={styles.text}>criar conta</Text>

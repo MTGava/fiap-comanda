@@ -1,11 +1,11 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 
-import { StyleSheet } from 'react-native';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import CardDvd from '../components/card.js';
+import { StyleSheet } from 'react-native';
 import Button from '../components/button.js';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Dvds() {
     const [dvds, setDvds] = useState([])
@@ -14,8 +14,6 @@ export default function Dvds() {
         axios.get("http://localhost:3000/dvds")
             .then(resp => setDvds(resp.data))
     }, [])
-    
-    console.log(dvds)
 
     return (
         <View style={styles.containerBetween}>
@@ -46,18 +44,16 @@ export default function Dvds() {
 
             <TextInput style={styles.input} placeholder="procurar" />
 
-            <Text style={styles.subtitle}>dvds</Text>
+            <Text style={styles.subtitle}>DVDS</Text>
 
             <ScrollView style={styles.scroll}>
-                {dvds.map(dvd => {
-                                   
-                  <CardDvd key={dvd.id} dvd={dvd} />
-                })}
+                
+                { dvds.map(dvd =>                
+                  <CardDvd key={dvd.id} dvd={dvd} />) }
                 
             </ScrollView>
 
             <Button>finalizar</Button>
-            
         </View>
 
     )
